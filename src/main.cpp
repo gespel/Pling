@@ -1,6 +1,6 @@
 #include <driver/i2s.h>
-#include "GouodModulesLib/instruments.h"
-#include "GouodModulesLib/synths.h"
+#include "instruments.h"
+#include "synths.h"
 
 const int BUFSIZE = 2048;
 
