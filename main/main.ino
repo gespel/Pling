@@ -2,7 +2,7 @@
 #include <driver/i2s.h>
 #include "GouodModulesLib/instruments.h"
 #include "GouodModulesLib/synths.h"
-//#include "GouodModulesLib/slang.h"
+#include "GouodModulesLib/slang.h"
 
 const int BUFSIZE = 2048;
 
@@ -35,8 +35,8 @@ void setup_i2n(int sampleRate, int bitDepth, int i2sChannel) {
 }
 
 void setup() {
-  //Slang s;
-  //s.tokenize("fn test asd;");
+  Slang s;
+  s.tokenize("fn test asd;");
   Serial.begin(115200);
   pinMode(16, INPUT);
   pinMode(34, INPUT);
