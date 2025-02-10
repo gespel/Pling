@@ -1,8 +1,8 @@
 #include <Arduino.h>
 #include <driver/i2s.h>
-#include "GouodModulesLib/instruments.h"
-#include "GouodModulesLib/synths.h"
-#include "GouodModulesLib/slang.h"
+#include "PhiInstrumentsMicroLib/instruments.h"
+#include "PhiInstrumentsMicroLib/synths.h"
+#include "PhiInstrumentsMicroLib/microslang/microslang.h"
 
 const int BUFSIZE = 2048;
 
@@ -35,9 +35,7 @@ void setup_i2n(int sampleRate, int bitDepth, int i2sChannel) {
 }
 
 void setup() {
-  Slang s;
-  s.tokenize("fn test asd;");
-  Serial.begin(115200);
+  Serial.begin(9600);
   pinMode(16, INPUT);
   pinMode(34, INPUT);
 }
@@ -45,8 +43,8 @@ void setup() {
 void loop() {
   double sampleRate = 48000;
   Pling pling(sampleRate);
-  SawtoothSynth ss(220.f, sampleRate);
-  //setup_i2n(sampleRate, 16, 0);
+  SawtoothSynth ss(55.f, sampleRate);
+  setup_i2n(sampleRate, 16, 0);
   while(1) {
     int16_t sample;
     size_t bytes_written;
